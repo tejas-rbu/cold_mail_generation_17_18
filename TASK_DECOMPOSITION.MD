@@ -1,0 +1,64 @@
+Here is the **Task Decomposition** for your **AI Cold Email Generation (Multi-Agent System)** project, written in a clean academic + submission-ready format.
+
+
+🧠 Task Decomposition......... 
+                    
+                                Cold Email Generation Multi-Agent System
+
+
+The problem of generating effective cold emails is decomposed into a sequence of smaller, well-defined tasks. Each task is handled by a specialized AI agent to ensure modularity, accuracy, and scalability.
+
+
+## 🔷 1. Input Collection Task
+
+The system first collects user inputs such as industry, product name, and optionally the target job role. This step defines the context for the entire email generation pipeline and acts as the initial trigger for all downstream agents.
+
+
+
+## 🔷 2. Market & Context Research Task (Research Agent)
+
+This task involves gathering real-world information about the given industry and product. A web search tool (Tavily) is used to extract relevant data such as market trends, customer pain points, and industry insights. The goal is to ground the email generation process in factual and contextual knowledge.
+
+
+
+## 🔷 3. Buyer Persona Generation Task (Persona Agent)
+
+Using the collected context and user inputs, this task generates a detailed buyer persona. It identifies the target audience’s job role, goals, challenges, and buying triggers. This ensures that the email is personalized and aligned with the recipient’s needs.
+
+
+## 🔷 4. Cold Email Generation Task (Writer Agent)
+
+This task focuses on generating a persuasive and structured cold email using a large language model such as Groq or Gemini. The email is crafted based on the buyer persona and product details, ensuring clarity, engagement, and a strong call-to-action.
+
+
+
+## 🔷 5. Email Evaluation Task (Judge Agent)
+
+After email generation, this task evaluates the quality of the email based on multiple criteria such as clarity, personalization, relevance, and effectiveness of the call-to-action. It assigns structured scores and provides constructive feedback for improvement.
+
+
+
+## 🔷 6. Output Formatting & Presentation Task (UI Layer)
+
+The final task involves presenting all generated outputs in a structured user interface using Streamlit. This includes displaying the buyer persona, generated email, evaluation scores, and historical results in a clean and user-friendly dashboard.
+
+
+## 🔷 7. History Management Task
+
+The system stores previous generations in session memory. This allows users to review past outputs, compare emails, and reuse previous results without regenerating from scratch.
+
+
+# 🧩 Summary of Decomposition Flow
+
+
+Input → Research → Persona → Email Generation → Evaluation → UI Display → History Storage
+
+# 🏆 Final Insight
+
+This decomposition ensures that each task is:
+
+* Independent (handled by separate agent)
+* Specialized (focused responsibility)
+* Modular (easy to scale or replace)
+* Interconnected (structured data flow between agents)
+
