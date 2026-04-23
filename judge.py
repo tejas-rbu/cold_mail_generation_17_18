@@ -8,26 +8,23 @@ MODEL = "llama-3.3-70b-versatile"
 def evaluate_email(email):
 
     prompt = f"""
-    Evaluate this cold email:
-
-    Score on:
-    - Clarity (10)
-    - Personalization (10)
-    - Persuasion (10)
-    - CTA (10)
-
-    Give total out of 40 and improvements.
+    Evaluate email:
 
     Email:
     {email}
+
+    Give:
+    Hook /10
+    Relevance /10
+    Clarity /10
+    CTA /10
+    Total /40
+    Feedback
     """
 
-    response = client.chat.completions.create(
+    res = client.chat.completions.create(
         model=MODEL,
-        messages=[
-            {"role": "system", "content": "You are a strict AI sales email reviewer."},
-            {"role": "user", "content": prompt}
-        ]
+        messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.choices[0].message.content
+    return res.choices[0].message.content
