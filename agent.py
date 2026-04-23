@@ -1,17 +1,23 @@
-from tools import get_client
+from tools import get_client, search_web
 
 client = get_client()
 
 MODEL = "llama-3.3-70b-versatile"
 
 
-def define_persona(industry, product):
+def define_persona(industry, product, role):
+
+    context = search_web(f"{industry} {product}")
 
     prompt = f"""
-    Define a detailed buyer persona.
+    Use this real-world context:
+    {context}
+
+    Create buyer persona.
 
     Industry: {industry}
     Product: {product}
+    Role: {role}
 
     Include:
     - Job role
@@ -20,21 +26,20 @@ def define_persona(industry, product):
     - Buying triggers
     """
 
-    response = client.chat.completions.create(
+    res = client.chat.completions.create(
         model=MODEL,
         messages=[
-            {"role": "system", "content": "You are a B2B marketing strategist."},
             {"role": "user", "content": prompt}
         ]
     )
 
-    return response.choices[0].message.content
+    return res.choices[0].message.content
 
 
 def generate_email(persona, product):
 
     prompt = f"""
-    Write a persuasive cold email.
+    Write a cold email.
 
     Persona:
     {persona}
@@ -42,15 +47,12 @@ def generate_email(persona, product):
     Product:
     {product}
 
-    Make it short, personalized and include CTA.
+    Keep it short and persuasive.
     """
 
-    response = client.chat.completions.create(
+    res = client.chat.completions.create(
         model=MODEL,
-        messages=[
-            {"role": "system", "content": "You are an expert cold email copywriter."},
-            {"role": "user", "content": prompt}
-        ]
+        messages=[{"role": "user", "content": prompt}]
     )
 
-    return response.choices[0].message.content
+    return res.choices[0].message.content
