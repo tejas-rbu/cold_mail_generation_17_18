@@ -1,7 +1,9 @@
 PROBLEM STATEMENT : 
+
 Writing cold emails manually is time-consuming and often not personalized enough.This project solves that by using automation and AI to generate customized emails based on input data like company name, role, or user profile.                                   
 
-Explaination :
+EXPLAINATION :
+
 This project focuses on building an AI-powered cold email generation system that automates the end-to-end process of creating personalized and high-converting outreach emails for businesses. In traditional workflows, writing effective cold emails requires multiple steps such as understanding the target audience, researching the company or industry, drafting personalized messaging, and evaluating the quality of the final email. These tasks are typically handled manually by marketing or sales teams, making the process time-consuming, inconsistent, and dependent on human expertise. The goal of this project is to eliminate these bottlenecks by using a multi-agent AI system that performs each step automatically.
 
 The system is designed as an agentic pipeline where each agent is responsible for a specific function. The process begins with the Input Layer, where the user provides basic details such as industry, product, and optionally the target role. The first component is the Research Agent, which uses a web search tool such as Tavily to gather real-time contextual information about the industry, market trends, and potential customer pain points. This ensures that the generated emails are grounded in real-world data rather than generic assumptions.
